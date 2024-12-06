@@ -11,11 +11,10 @@ with open(sys.argv[1], 'r') as f:
 
 list1, list2 = list(zip(*lines))
 
-first_list = list1
-#print(f'1st List: {first_list}')
+#print(f'1st List: {list1}')
+#print(f'2nd List: {list2}')
 
-second_list = list2
-#print(f'2nd List: {second_list}')
+
 
 # ++++++++++++++++++++++++++++++++
 ## Part 1
