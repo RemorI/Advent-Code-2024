@@ -17,5 +17,15 @@ first_list = list1
 second_list = list2
 #print(f'2nd List: {second_list}')
 
+# ++++++++++++++++++++++++++++++++
+## Part 1
+
 # Result is 1222801
-#print(sum(abs(x1 - x2) for x1, x2 in zip(sorted(list1), sorted(list2))))
+print(sum(abs(x1 - x2) for x1, x2 in zip(sorted(list1), sorted(list2))))
+
+
+# ++++++++++++++++++++++++++++++++
+## Part 2
+
+# Result is 22545250
+print(sum(x * len([y for y in list2 if y == x]) for x in list1))
