@@ -1,7 +1,7 @@
-# Day 6
+# Day 7
 
-# Direct Link to adventofcode.com Day 6
-# https://adventofcode.com/2024/day/6
+# Direct Link to adventofcode.com Day 7
+# https://adventofcode.com/2024/day/7
 
 import sys
 
