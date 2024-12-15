@@ -19,6 +19,31 @@ def perimeter(region: set[tuple[int]]) -> int:
         total += 4 - num_neighbors
     return total
 
+def sides(region: set[tuple[int]]) -> int:
+    up, down, left, right = (set() for _ in range(4))
+    for r, c in region:
+        if (r-1, c) not in region:
+            up.add((r,c))
+        if (r+1, c) not in region:
+            down.add((r,c))
+        if (r, c-1) not in region:
+            left.add((r,c))
+        if (r, c+1) not in region:
+            right.add((r,c))
+    count = 0
+    for (r, c) in up:
+        if (r, c) in left: count += 1
+        if (r, c) in right: count += 1
+        if (r-1, c-1) in right and (r, c) not in left: count += 1
+        if (r-1, c+1) in left and (r, c) not in right: count += 1
+    for (r, c) in down:
+        if (r, c) in left: count += 1
+        if (r, c) in right: count += 1
+        if (r+1, c-1) in right and (r, c) not in left: count += 1
+        if (r+1, c+1) in left and (r, c) not in right: count += 1
+    return count
+
+
 regions = []
 seen = set()
 for r in range(num_rows):
@@ -49,4 +74,5 @@ print(sum(len(r) * perimeter(r) for r in regions))
 # ++++++++++++++++++++++++++++++++
 ## Part 2
 
-# Result is
+# Result is 902742
+print(sum(len(r) * sides(r) for r in regions))
