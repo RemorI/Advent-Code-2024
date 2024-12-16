@@ -45,4 +45,4 @@ print(sum(count_stones(s, 25) for s in stones))
 ## Part 2
 
 # Result is 250783680217283
-print(sum(count_stones(s, 25) for s in stones))
+print(sum(count_stones(s, 75) for s in stones))
