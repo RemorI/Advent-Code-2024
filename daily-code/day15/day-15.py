@@ -14,37 +14,59 @@ num_row = len(grid)
 num_cols = len(grid[0])
 #up, down, left, right = (-1, 0), (1, 0), (0, -1), (0, 1)
 
-
-
-for r, row in enumerate(grid):
-    for c, col in enumerate(grid[0]):
-        if grid[r][c] == "@":
-            rro, cro = r, c
-        for move in movement:
-            if "^":
-                if grid[r-1][c] == "#": #
-                    continue
-                if not grid[r-1][c] == "O" and not grid[r-1][c] == "#": #
-                    rro, cro = (r-1, c)
-                    grid[rro][cro] = "@"
+def move_reader(movy: int, movx: int, count_y: int, count_x: int) -> list[list[str]]:
+    if 0<=r+movy<num_row and 0<=c+movx<num_cols:
+        if grid[r+movy][c+movx] != "#": 
+            if  grid[r+movy][c+movx] != "O": 
+                grid[r+movy][c+movx] = "@"
+                grid[r][c] = "."
+            else: 
+                while grid[r+count_y][c+count_x] == "O":
+                    count_y += movy
+                    count_x += movx
+                if grid[r+count_y][c+count_x] != "#":
+                    grid[r+count_y][c+count_x] = "O"
+                    grid[r+movy][c+movx] = "@"
                     grid[r][c] = "."
-                if  grid[r-1][c] == "O": #
-                    if grid[r-2][c] == "#": #
-                        continue
-                    else:
-                        grid[rro][cro] = "@"
-                        grid[r][c] = "."
-                        count = -2#
-                        while grid[r+count][c] == "O" and not grid[r+count-1][c] == "#":
-                            grid[r+count-1][c] = "O"
-                            count += 1#
+        return grid
 
-# O O @ .
+def starter():
+    for r, row in enumerate(grid):
+        for c, val in enumerate(row):
+            if val == "@":
+                return (r, c)
+            
+for move in movement:
+    r, c = starter()
+    if move == "^":
+        grid = move_reader(-1, 0, -2, 0)
+    elif move == "v":
+        grid = move_reader(1, 0, 2, 0)
+    elif move == ">":
+        grid = move_reader(0, 1, 0, 2)
+    elif move == "<":
+        grid = move_reader(0, -1, 0, -2)
+    print(f"Movimiento: {move}")
+    print('\n'.join(map(str, grid)))
 
-print(grid)
-print(len(movement))
+
+count1 = 0   
+for a, rowa in enumerate(grid):
+    for b, valb in enumerate(rowa):
+        if valb == "O":
+            count1 += (100*a)+b
+
+
+
+
+print(count1)
 
 # ++++++++++++++++++++++++++++++++
 ## Part 1
+
+# Result is 1371036
+
+# ++++++++++++++++++++++++++++++++
+## Part 2
 
 # Result is
