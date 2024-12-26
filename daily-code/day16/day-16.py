@@ -30,13 +30,17 @@ while queue:
     if grid[r + dr][c + dc] != "#" and (r + dr, c + dc, dr, dc) not in seen:
         heapq.heappush(queue, (cost + 1, r + dr, c + dc, dr, dc))
     for ndr, ndc in [(-dc, dr), (dc, -dr)]:
-        if (r, c, ndr, ndc) not in seen:
+        if (r, c, ndr, ndc) not in seen and grid[r + ndr][c + ndc] != "#":
             heapq.heappush(queue, (cost + 1000, r, c, ndr, ndc))
 
 
 # ++++++++++++++++++++++++++++++++
 ## Part 1
 
-# Result is
+# Result is 88416
 print(count1)
 
+# ++++++++++++++++++++++++++++++++
+## Part 2
+
+# Result is
