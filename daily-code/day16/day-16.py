@@ -18,20 +18,29 @@ for r, row in enumerate(grid):
         continue
     break
 
-queue = [(0, *start, 0, 1)]
+queue = [(0, *start, 0, 1, [start])]
 seen = {(*start, 0, 1)}
+count1 = None
+best_cost = float("inf")
+points = set()
 
 while queue:
-    cost, r, c, dr, dc = heapq.heappop(queue)
+    cost, r, c, dr, dc, path = heapq.heappop(queue)
     seen.add((r, c, dr, dc))
     if grid[r][c] == "E":
-        count1 = cost
-        break
+        if not count1:
+            count1 = cost
+        if cost <= best_cost:
+            best_cost = cost
+            for point in path:
+                points.add(point)
+        else:
+            break
     if grid[r + dr][c + dc] != "#" and (r + dr, c + dc, dr, dc) not in seen:
-        heapq.heappush(queue, (cost + 1, r + dr, c + dc, dr, dc))
+        heapq.heappush(queue, (cost + 1, r + dr, c + dc, dr, dc, path + [(r + dr, c + dc)]))
     for ndr, ndc in [(-dc, dr), (dc, -dr)]:
         if (r, c, ndr, ndc) not in seen and grid[r + ndr][c + ndc] != "#":
-            heapq.heappush(queue, (cost + 1000, r, c, ndr, ndc))
+            heapq.heappush(queue, (cost + 1000, r, c, ndr, ndc, list(path)))
 
 
 # ++++++++++++++++++++++++++++++++
@@ -43,4 +52,5 @@ print(count1)
 # ++++++++++++++++++++++++++++++++
 ## Part 2
 
-# Result is
+# Result is 442
+print(len(points))
