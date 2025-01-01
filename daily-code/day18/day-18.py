@@ -53,5 +53,5 @@ print(count_steps(part1_num))
 # ++++++++++++++++++++++++++++++++
 ## Part 1
 
-# Result is
+# Result is 64,29
 print(",".join(str(x) for x in blocks[lo][::-1]))
