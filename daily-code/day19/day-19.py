@@ -29,11 +29,11 @@ count1 = len([c for c in combinations if c != 0])
 # ++++++++++++++++++++++++++++++++
 ## Part 1
 
-# Result is
+# Result is 317
 print(count1)
 
 # ++++++++++++++++++++++++++++++++
 ## Part 2
 
-# Result is
+# Result is 883443544805484
 print(sum(combinations))
