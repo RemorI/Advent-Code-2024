@@ -1,7 +1,7 @@
-# Day 19
+# Day 20
 
-# Direct Link to adventofcode.com Day 19
-# https://adventofcode.com/2024/day/19
+# Direct Link to adventofcode.com Day 20
+# https://adventofcode.com/2024/day/20
 
 import sys
 from collections import deque, defaultdict
@@ -61,6 +61,7 @@ while queue:
 
 # Result is 1197
 print(sum(c for c in count_shortcuts(2, target_savings).values()))
+
 # ++++++++++++++++++++++++++++++++
 ## Part 2
 
