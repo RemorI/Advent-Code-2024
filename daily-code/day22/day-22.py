@@ -1,7 +1,7 @@
-# Day 21
+# Day 22
 
-# Direct Link to adventofcode.com Day 21
-# https://adventofcode.com/2024/day/21
+# Direct Link to adventofcode.com Day 22
+# https://adventofcode.com/2024/day/22
 
 import sys
 
