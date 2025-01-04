@@ -1,7 +1,7 @@
-# Day 22
+# Day 23
 
-# Direct Link to adventofcode.com Day 22
-# https://adventofcode.com/2024/day/22
+# Direct Link to adventofcode.com Day 23
+# https://adventofcode.com/2024/day/23
 
 import sys
 from collections import defaultdict
