@@ -25,3 +25,8 @@ operations = {
     "AND": lambda x1, x2: x1 & x2,
     "XOR": lambda x1, x2: x1 ^ x2
 }
+
+# ++++++++++++++++++++++++++++++++
+## Part 1
+
+# Result is
