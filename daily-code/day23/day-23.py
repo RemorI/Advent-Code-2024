@@ -38,11 +38,11 @@ for conn in conns:
 # ++++++++++++++++++++++++++++++++
 ## Part 1
 
-# Result is
+# Result is 1599
 print(len([t for t in triples if any(x.startswith("t") for x in t)]))
 
 # ++++++++++++++++++++++++++++++++
 ## Part 2
 
-# Result is
+# Result is av,ax,dg,di,dw,fa,ge,kh,ki,ot,qw,vz,yw
 print(max(passwords, key=len))
