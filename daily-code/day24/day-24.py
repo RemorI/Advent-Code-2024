@@ -45,5 +45,5 @@ result = [
 # ++++++++++++++++++++++++++++++++
 ## Part 1
 
-# Result is
+# Result is 56620966442854
 print(int("".join(map(str, result)), 2))
